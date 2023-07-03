@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome</title>
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            var name = prompt("Enter your name:");
+            if (name) {
+                alert("Welcome, " + name + "!");
+                window.location.href = "/channels?name=" + encodeURIComponent(name);
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>Welcome to the Chat App</h1>
+</body>
+</html>

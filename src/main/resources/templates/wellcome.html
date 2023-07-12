@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Welcome</title>
-    <script>
-        window.addEventListener('DOMContentLoaded', (event) => {
-            var name = prompt("Enter your name:");
-            if (name) {
-                alert("Welcome, " + name + "!");
-                window.location.href = "/channels?name=" + encodeURIComponent(name);
-            }
-        });
-    </script>
+<title>Welcome</title>
+<script>
+	        window.addEventListener('DOMContentLoaded', (event) => {
+	            var name = prompt("Enter your name:");
+	            if (name) {
+	            	sendUsernameToServer(name);
+	            }
+	        });
+	        function sendUsernameToServer(username) {
+	            // Send a POST request to the server with the username
+	            fetch('/login', {
+	                method: 'POST',
+	                headers: {
+	                    'Content-Type': 'application/json'
+	                },
+	                body: JSON.stringify({ username: username })
+	            })
+            }    
+	</script>
 </head>
 <body>
-    <h1>Welcome to the Chat App</h1>
+	<h1>Welcome to the Chat App</h1>
+	<h3>Join a Channel</h3>
+	<div th:each="channel : ${channels}">
+		<a th:href="@{'/channels/' + ${channel.channelId}}"> <span
+			th:text="${channel.channelId}"></span></a>
+	</div>
 </body>
 </html>

@@ -1,4 +1,4 @@
-package com.CodersCampus.assignment14.serrvice;
+package com.CodersCampus.assignment14.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ public class UserServices {
 	private UserRepository userRepo;
 	
 	public void addUser(User user) {
-		userRepo.addUser(user);
+		userRepo.save(user);
 	}
 
 }

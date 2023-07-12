@@ -4,12 +4,7 @@
     <title>Welcome</title>
 </head>
 <body>
-    <h1>Welcome to the Chat App</h1>
-    <form id="registrationForm">
-        <label for="name">Enter your name:</label>
-        <input type="text" id="name" name="name" required>
-        <button type="submit">Register</button>
-    </form>
+    
 
     <script>
         document.getElementById('registrationForm').addEventListener('submit', function (event) {
@@ -34,5 +29,25 @@
             });
         });
     </script>
+    <div id="chat-page" class="hidden">
+    <div class="chat-container">
+        <div class="chat-header">
+            <h2>Channel</h2>
+        </div>
+        <div class="connecting">Connecting To Chat...</div>
+        <ul id="messageArea">
+
+        </ul>
+        <form id="messageForm" name="messageForm" nameForm="messageForm">
+            <div class="form-group">
+                <div class="input-group clearfix">
+                    <input type="text" id="message" placeholder="Enter Messege Here..."
+                           autocomplete="off" class="form-control" />
+                    <button type="submit" class="primary">Send</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 </body>
 </html>
